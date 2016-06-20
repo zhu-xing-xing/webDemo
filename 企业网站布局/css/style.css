@@ -1,0 +1,262 @@
+@charset "utf-8";
+/* CSS Document */
+
+ /*************************************************************
+     样式重置
+*************************************************************/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* 在旧版本浏览器中显示HTML5元素 */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+        box-sizing: border-box;
+}
+body {
+	font-size: 100%;
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+ /*************************************************************
+     常用样式集合
+*************************************************************/
+
+/* 清除浮动影响 */
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.clearfix {
+	*zoom: 1; /* HACK_IE_LTE_7: IE7及更老版本的IE不支持:after伪元素 */
+}
+
+/* 浮动元素 */
+.fLeft {
+	float: left;
+}
+.fRight {
+	float: right;
+}
+
+/* 无障碍访问（隐藏文字）*/
+.accessibility {
+	position: absolute;
+	text-indent: -9999px;
+}
+
+/* 外围容器 */
+.container {
+  max-width: 62.5em;/* 1000px / 16px */
+  margin: 0 auto;
+}
+/* 通用区域样式 */
+.common {
+  float: left;
+  width: 330px;
+  border: 1px solid #E7E7E7;
+  margin-right: 5px;
+}
+
+.mb20  {margin-bottom: 20px;}
+.mr0 {margin-right: 0 !important;}
+/*************************************************************
+     基准样式
+*************************************************************/
+
+
+/* header部分 */
+header[role="banner"] {
+  margin-bottom: 5px;
+}
+
+.masthead .logo {
+  width: 12.5em; /* 200px / 16px */
+  height: 70px;
+  display: block;
+  background-image: url("http://img.mukewang.com/53edadad0001efe202000070.jpg");
+}
+.masthead nav {
+  margin-left: 206px;
+}
+.nav-main a{
+  width: 100px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  margin-right: 15px;
+  display: block;
+  float: left;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.nav-main a:link,
+.nav-main a:visited {
+  color: #000000;
+}
+.nav-main a:focus,
+.nav-main a:hover,
+.nav-main a:active,
+.nav-main a.active {
+  color: #FFFFFF;
+  background-color: #BD3847;
+}
+
+
+/* 幻灯片部分 */
+.slide {
+  height: 330px;
+}
+
+/* 滚动信息部分 */
+.scroll-news {
+  color: #FFFFFF;
+  position: relative;
+}
+.scroll-news h2 {
+  width: 9.375em;  /* 150px / 16px */
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #BD3847;
+  float: left;
+}
+.scroll-news p {
+  background-color: #3E3E3E;
+  width: 53.125em; /* 850px / 16px*/
+  height: 40px;
+  line-height: 40px;
+  text-indent: 2em;
+  float: right;
+}
+.scroll-news a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/* 课程部分 */
+.course p {
+  text-align: center;
+  font-weight: 700;
+  line-height: 30px;
+}
+.course p a {
+  text-decoration: none;
+  color: #000000;
+}
+
+/* 主体部分 */
+main h3 {
+  background-color: #BD3847;
+  height: 40px;
+  line-height: 40px;
+  text-indent: 2em;
+  color: #FFFFFF;
+}
+
+main .news-content {
+  height: 260px;
+  padding: 15px 5px 0;
+
+}
+main .news-content li {
+  border-bottom: 1px solid #999999;
+  padding-bottom: 7px;
+  margin-bottom: 10px;
+}
+.date {
+  float: left;
+  width: 50px;
+  height: 60px;
+  background-color: #BD3847;
+  border-radius: 4px;
+  text-align: center;
+  color: #FFFFFF;
+}
+.info {
+  float: left;
+  width: 245px;
+  margin-left: 10px;
+}
+.info h4 {
+  font-size: 12px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.info p a{
+  font-size: 14px;
+  line-height: 22px;
+  text-decoration: none;
+  color: #000000;
+}
+
+
+/* 热门活动 */
+.activity-content {
+  height: 260px;
+  padding:25px 25px 10px;
+}
+.activity-content li a {
+  font-size: 14px;
+  line-height: 22px;
+  text-decoration: none;
+  color: #000000;
+}
+/* 联系我们 */
+.contact-content {
+  height: 260px;
+  padding:10px 0 0 5px;
+}
+address {
+  line-height: 22px;
+}
+
+/* 底部版权部分  */
+footer[role="contentinfo"] {
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  color: #000000;
+  font-weight: 700;
+  background-color: #E8E8E8;
+}
