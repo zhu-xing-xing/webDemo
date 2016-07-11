@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+<style type="text/css" media="screen">
+*{
+	margin:0;
+	padding:0;
+}
+.main{
+	width:1190px;
+	margin:0 auto;
+}
+.top{
+	display:none;
+	width:40px;
+	height:40px;
+	position:fixed;
+	left:50%;
+	margin-left: 610px;
+	bottom:30px;
+	background: url(images/top_bg.jpg) left top no-repeat;
+}
+a:hover{
+	background: url(images/top_bg.jpg) left bottom no-repeat;
+}
+
+/*登录框*/
+#login_btn {
+	font-family:'微软雅黑';  
+	width:100px;
+	height:40px;
+	background:#c9394a;
+	text-align:center;
+	display:block;
+	line-height:40px;
+	font-size:14px;
+	opacity:.9;
+	text-decoration:none;
+	color:#fff;
+	cursor:pointer;
+	position:fixed;
+	top:200px;
+	right:100px;
+}
+#login_btn:hover { 
+	opacity:1;
+}
+
+
+#mask{
+	background-color: #000;
+	opacity:0.75;
+	filter:alpha(opacity=75);  /*兼容IE*/
+	height:1000px;
+	width:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:100;
+}
+#login{
+	position:fixed;
+	left:30%;
+	top:30%;
+	z-index:101;
+}
+.loginCon{
+	width:670px;
+	height:380px;
+	background:url(images/loginBg.png) no-repeat;
+	position:relative;
+}
+#close{
+	width:30px;
+	height:30px;
+	background:url(images/close.png) no-repeat;	
+	position:absolute;
+	top:5px;
+	right:5px;
+	cursor:pointer;
+}
+</style>
+
+<script>
+	window.onload=function(){
+		var obtn = document.getElementById("btn");
+		var timer = null;
+		var isTop=true;
+
+		window.onscroll=function(){
+			var oTop = document.documentElement.scrollTop || document.body.scrollTop;
+			var cHeight = document.documentElement.clientHeight || document.body.clientHeight;
+			// alert(cHeight);
+			if(oTop>=cHeight){
+				obtn.style.display="block";
+			}
+			else{
+				obtn.style.display="none";
+			}
+
+			if(!isTop){
+				clearInterval(timer);
+			}
+			isTop=false;
+		}
+
+		obtn.onclick=function(){
+			timer=setInterval(function(){
+				isTop=true;
+				var oTop = document.documentElement.scrollTop || document.body.scrollTop;
+				var speed = Math.floor(-oTop/6);
+				document.documentElement.scrollTop=document.body.scrollTop+=speed;
+				if(oTop==0) clearInterval(timer);
+			}, 30);
+		}
+
+		//遮罩层
+
+		var oBtn=document.getElementById("login_btn");
+		oBtn.onclick=function(){
+			openNew(); //优化的重要性，看着多简洁啊！
+		}
+}
+//代码优化
+function openNew(){
+						//获取页面的高度和宽度
+						var sHeight =document.documentElement.scrollHeight || document.body.scrollHeight;
+						var sWidth =document.documentElement.scrollWidth || document.body.scrollWidth; 
+
+						//获取页面可视区域高度，（宽度是一样的）
+						var wHeight = document.documentElement.clientHeight;
+
+						// 创造遮罩节点
+						var oMask=document.createElement("div");
+								oMask.id="mask";
+								oMask.style.height=sHeight+'px';
+								oMask.style.width=sWidth+'px';
+								document.body.appendChild(oMask);
+
+						var oLogin=document.createElement("div");
+								oLogin.id="login";
+								oLogin.innerHTML="<div class='loginCon'><div id='close'></div></div>";
+								document.body.appendChild(oLogin);
+								//获取登录框的高和宽   要写在插入之后才能获取！
+								var dHeight=oLogin.offsetHeight;
+								var dWidth=oLogin.offsetWidth;
+								//设置登录框的位置，使其居中显示
+								oLogin.style.left=(sWidth-dWidth)/2+'px';
+								oLogin.style.top=(wHeight-dHeight)/2+'px';
+
+
+						var oClose=document.getElementById("close");		
+								oMask.onclick=oClose.onclick=function(){
+									document.body.removeChild(oMask);
+									document.body.removeChild(oLogin);
+								}
+}
+</script>
+</head>
+<body>
+		<div class="main">
+			<img src="images/tb_bg.jpg">
+		</div>
+		<a class="top" id="btn" href="javascript:();"></a>		
+    <button id="login_btn" hidefocus="true">登录</button>
+	
+	<!-- 遮罩层 --> 
+<!-- 		<div id="mask"></div>	
+		<div id="login">
+			<div class="loginCon">
+				<div id="close"></div>
+			</div>
+		</div> -->
+</body>
+</html>
+
+

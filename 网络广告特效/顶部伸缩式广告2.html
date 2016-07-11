@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		.box{
+			width:960px;
+			margin:0 auto;
+		}
+		#ad{
+			width:960px;
+			height:386px;
+			position:relative;
+			overflow:hidden;	
+			display:none;					
+		}
+		#ad_small{
+			width:960px;
+			height:68px;
+		}
+		#close{
+			width:30px;
+			height:30px;
+			background: url(img/close.png) no-repeat;
+			position:absolute;
+			top:5px;
+			right:5px;
+			display:none;								
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var ad=document.getElementById("ad");
+			var close=document.getElementById("close");
+			var ad_small=document.getElementById("ad_small");
+			var ad_big=document.getElementById("ad_big");
+			var h=0;
+			var maxh=ad_big.height;
+			var minh=ad_small.height;
+
+			function down(){
+				if(h<maxh){
+					h+=5;
+					ad.style.height=h+'px';
+					ad.style.display='block';
+					setTimeout(down,1);
+				}
+				else{
+					ad.style.height=h+'px';
+					ad.style.display='block';
+					setTimeout(up,2000);
+				}
+			}
+		function up(){
+				if(h>minh){
+					h-=5;
+					ad.style.height=h+'px';
+					setTimeout(up,1);
+				}
+				else{
+					ad_big.style.display='none';
+					close.style.display='block';
+				}
+			}
+
+		close.onclick=function(){
+			ad.style.display='none';
+			}
+
+		setTimeout(down,2000);
+}
+	</script>
+
+
+</head>
+<body>
+	<div class="box">
+		<div id="ad">
+			<img id="ad_big" src="img/ad.png" alt="大广告">
+			<img id="ad_small" src="img/cur.png" alt="小广告">
+			<span id="close"></span>
+		</div>
+
+		<div class="con">
+			<img id="con" src="img/dangdang.jpg" alt="主体">
+		</div>
+	</div>
+</body>
+</html>

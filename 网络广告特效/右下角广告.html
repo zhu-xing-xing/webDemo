@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		*{margin:0;padding:0;}
+		.box{width:960px;margin:0 auto;}
+		.rightAd{
+			width:400px;
+			height:300px;
+			position:fixed;   /*IE6及以下不支持*/
+			bottom:0;
+			right:0;
+		}
+/*		.close{
+			position:absolute;
+			width:30px;
+			height:30px;
+			top:5px;
+			right:5px;
+			background: url(img/close.png) no-repeat;
+		}*/
+		.pic #closeBtn{
+			display: inline-block;
+			position: absolute;
+			width:16px;
+			height:16px;
+			top: 5px;
+			right:5px;
+			background: url(img/icon.jpg) no-repeat -399px -19px;
+		}
+		.hide{
+			display:none;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var oadCon=document.getElementById("adCon");
+			var ocloseBtn=document.getElementById("closeBtn");
+			ocloseBtn.onclick=function(){
+				// oadCon.style.display="none";
+				oadCon.className="hide";
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<img src="img/dangdang.jpg" alt="当当网">
+	</div>
+
+	<div class="rightAd" id="adCon">
+		<div class="pic">  <!-- 图片 -->
+			<a href="http://imooc.com" target="_blank">
+				<img src="img/snow.gif" >
+			</a>
+			<a href="javascript:void(0)" id="closeBtn"></a>
+		</div>
+
+		<!-- <div class="close"></div> -->
+	</div>
+</body>
+</html>

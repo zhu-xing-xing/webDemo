@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>顶部广告 自动</title>
+	<style>
+		*{margin:0; padding:0;}
+		.ad,.con{margin:0 auto;text-align: center;font-size: 30px;
+			line-height: 40px;padding:5px;}
+		.ad{background-color: #e8e8e8;width:1000px;height:300px;display:none;overflow:hidden;}
+		.con{background-color: #ccc;width:1000px;height:40px;}
+	</style>
+<script>
+	window.onload=function(){
+		var h=0;
+		var ad=document.getElementById("ad");
+		var con=document.getElementById("con");
+
+		function addh(){
+			if(h<300){
+				h+=5;
+				ad.style.height=h+'px';
+				ad.style.display='block';
+				setTimeout(addh,10);				
+			}
+			else{
+				setTimeout(subh,2000);				
+			}
+		}
+
+		function subh(){
+			if(h>0){
+				h-=5;
+				ad.style.height=h+'px';
+				setTimeout(subh,10);
+			}			
+			else{
+				ad.style.display='none';
+			}
+		}
+
+		setTimeout(addh,2000);
+}
+</script>
+</head>
+<body>
+	<div class="ad" id="ad">
+		<h2>欢迎光临娃娃屋！</h2>
+		<p>大幅广告！大幅广告！大幅广告！大幅广告！大幅广告！</p>	
+	</div>
+	<div class="con" id="con">
+		<p>慕课网欢迎您！</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伸缩式广告</title>
+<style>
+	*{margin:0;padding:0;}
+.content{width:960px;margin:0 auto;font-size:30px;}
+.tipCon{position:fixed;bottom:0;right:0;text-align: center;}
+.clickMe{height:30px;background-color: #ccc;line-height: 30px;position: relative;}
+#close{width:30px;height:30px;position:absolute;top:0px;right:0px;background: url(img/close.png) no-repeat;}
+/*.close {display:none;}*/
+/*.showPic{display:none;}*/
+</style>
+
+<script>
+window.onload = function(){
+	var tipBox = document.getElementById("tipCon");
+	var clickMe = document.getElementById("clickMe");
+	var showPic = document.getElementById("showPic");
+	var close = document.getElementById("close");
+	clickMe.onmouseover = function(){
+		  showPic.style.display = 'block';
+		  close.style.display = 'block';
+		}
+	close.onclick = function(){
+		showPic.style.display = 'none';
+		close.style.display = 'none';
+	}
+}
+</script>
+</head>
+<body>
+<div class="content">
+	<img src="img/dangdang.jpg">
+</div>
+
+<div class="tipCon" id="tipCon">
+  <div class="clickMe" id="clickMe">
+	  猜猜我有啥？
+	  <a href="javascrip:void(0);" id="close" class="close"></a>
+  </div>
+  <div class="showPic" id="showPic"><img src="img/snow.gif" /></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="抢抢团-是一个中立的、致力于帮助广大网友买到更有性价比商品的推荐网站。抢抢团天天团，团长每天人工挑品，详细记录挑品过程，包含个护、食品、家居、图书、服饰、母婴等类别，数万用户参与免费试用、晒单、点评等。诚信的服务，为您提供愉悦的网上购购物体验!">
+<meta name="Keywords" content="抢抢团,精品馆,0元试用,免费试用,优选团购,优惠精选,优惠券,1角团">
+<title>抢抢团，优质宝贝，超值团购，别错过！</title>
+<link rel="stylesheet" href="/Public/home/tuan/css/qqtIndex.css">
+<link href="/Public/home/tuan/img/favicon.ico" rel="icon">
+</head>
+<body>
+<div id="pageInfo" class="6"></div>
+<div id="container">
+
+	<div id="header">
+		<div class="content">
+			<img src="/Public/home/tuan/img/new_logo.png" alt="千万别错过 | 抢抢团-团长每天精选超值好货，价格优惠，限时抢购" class="logo">
+			<ul id="nav">
+				<li><a href="index.html">首页</a></li>
+				<li><a href="qqT.html" class="active">抢抢团</a></li>
+				<li><a href="freeT.html">0元试用</a></li>
+				<li><a href="jpT.html">精品馆</a></li>
+				<li id="toApp"><a href="http://www.qwbcg.com/?download" target="_blank">手机更优惠</a></li>
+			</ul>
+		</div>
+	</div>  <!-- header -->
+
+	<div id="content">
+			<div id="firstT" class="section">
+				<ul class="shopList">
+
+					
+				</ul>
+			</div>
+	</div> <!-- content -->
+
+	<div id="alertWin">
+		<div id="wrap"></div>
+		<div id="appNote">
+			<img src="/Public/home/tuan/img/qiangq.png" class="qiangq">
+			<img src="/Public/home/tuan/img/close.png" class="close">
+			<p>
+				<span>暂不支持网页上参团</span><br>
+				<strong>请下载“抢抢购物助手”</strong>
+			</p>
+			<div>
+				<p id="barcode">
+					<img src="/Public/home/tuan/img/barcode.png"><br>
+					<em>扫描二维码下载</em>
+				</p>
+				<a href="https://itunes.apple.com/app/id696741738" class="ios" target="_blank"><img src="/Public/home/tuan/img/ios.png">苹果下载</a>
+				<a href="http://download.qwbcg.mobi/qgzs/qgzs_qwbcg.com.apk" class="android"><img src="/Public/home/tuan/img/android.png">安卓下载</a>
+			</div>
+		</div> <!-- appNote -->
+	</div> <!-- alertWin -->
+
+	<div id="toTop_s">回顶部</div>
+
+	<div id="footer">
+		<span>下载抢抢购物助手 | 官方QQ交流群：327870434</span><br>
+		<span>友情链接：<a href="http://www.baidu.com/">百度</a> | <a href="http://tieba.baidu.com/">百度贴吧</a> | <a href="http://image.baidu.com/">百度图片</a> | <a href="http://baike.baidu.com/">百度百科</a> | <a href="http://music.baidu.com/">百度音乐</a></span><br>
+		<span>商务合作：bd@qwbcg.com</span><br>
+		<span>北京市海淀区西二旗辉煌国际1号楼</span><br>
+		<span>客服电话 010-59741721&nbsp;&nbsp;服务及监督电话 010-59704686&nbsp;&nbsp;京ICP备 13018945 号</span><br>
+		<span>Copyright © 2015.北京美秒科技有限公司 版权所有</span>
+	</div> <!-- footer -->
+</div>
+<script type="text/tmpl" id="myTmpl">
+	<li>
+		<img src="$goods_image_min_url$" class="shopImg" alt="$goods_name$"><img src="/Public/home/tuan/img/cftLogo.png" class="special" $status_step | cft$><img src="/Public/home/tuan/img/yjtLogo.png" class="special" $v-is_yjt$>
+		<div class="shopCon">
+			<h2><a href="$goods_id | shopLink$" class="sLink" target="_blank">$goods_name$</a></h2>
+			<span class="sites">团长：$user_name$</span><span class="sites">$shop_id | isTaob$</span><span class="sites">$create_time | putTime$</span><br>
+			<span class="moneyIcon">￥</span><strong>$price$</strong><span class="price">掌柜促销价</span><span class="priceNum">￥$c_price$</span><span class="price price1">市场价</span><span class="priceNum">￥$m_price$</span><em v-is_baoyou>包邮</em>
+			<p class="sIntroduce">$recommend_reason | limit$</p>
+			<a src="javascript:;" class="showAll">阅读全文</a>
+			<span class="details timeNote" t="$end_time$"></span><span class="details" $v-report_useful_count$>试用报告 $report_useful_count$</span><span class="details" $v-show_order_useful_count$>晒单 $show_order_useful_count$</span>
+			<a href="javascript:;" class="joinT">立即参团</a>
+			<a href="$goods_url_for_wap$" class="throughA" target="_blank">直达链接></a>
+		</div> <!-- shopCon -->
+	</li>
+</script>
+<script src="/Public/home/js/jquery.js"></script>
+<script src="/Public/home/tuan/js/iTmp.js"></script>
+<script src="/Public/home/tuan/js/qqtCommon.js"></script>
+</body>
+</html>

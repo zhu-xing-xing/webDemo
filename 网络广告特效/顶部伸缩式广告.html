@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>顶部伸缩式广告</title>
+	<style type="text/css" media="screen">
+		*{margin:0;padding:0;}
+		.box{width:960px;margin:0 auto;}
+		#ad{display:none;width:960px;height:386px;}
+	</style>
+
+<script>
+window.onload=function(){
+	var ad=document.getElementById("ad");
+	var adCon=document.getElementById("adCon");
+	var h=0;
+	var maxH=adCon.height;
+
+	function adDown(){
+		if(h<maxH){
+			h+=5;
+			ad.style.height=h+'px';
+			ad.style.display="block";
+			setTimeout(adDown,1);
+		}
+		else{
+			ad.style.height=h+'px';
+			ad.style.display="block";
+			setTimeout(adUp,3000);
+		}
+	}
+
+	function adUp(){
+		if(h>0){
+			h-=5;
+			ad.style.height=h+'px';
+			setTimeout(adUp,1);
+		}
+	}
+	setTimeout(adDown,3000);
+}
+</script>
+</head>
+<body>
+<div class="box">
+	<div id="ad">
+		<img id="adCon" src="img/ad.png">
+	</div>
+	<div id="content"><img src="img/dangdang.jpg"></div>
+</div>
+
+</body>
+</html>

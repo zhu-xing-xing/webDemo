@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		*{
+			padding:0;
+			margin:0 auto;
+		}
+		#pn{
+			background-color: #e8e8e8;
+			width:600px;
+			margin:0 auto;
+			line-height: 40px;
+			padding:5px;
+			height:auto;
+		}
+		.slide{
+			margin:0 auto;
+			width:610px;
+			padding:0;
+			border-top:solid 4px gray;
+		}
+		.btn-slide{
+			background-color: gray;
+			width:100px;
+			height:30px;
+			line-height: 30px;
+			text-align: center;
+			margin:0 auto;
+			display:block;
+			color:#fff;
+			text-decoration: none;
+			padding:5px;
+		}
+	</style>
+
+<script>
+	function show(){
+					var hpn=document.getElementById("hpn");
+	var btn=document.getElementById("strHref");
+	hpn.style.display="block";
+	btn.innerHTML="收起-";
+	btn.href="javascript:hide()";
+}
+
+	function hide(){
+		var hpn=document.getElementById("hpn");
+		var btn=document.getElementById("strHref");
+		hpn.style.display="none";
+		btn.innerHTML="更多选项+";	
+		btn.href="javascript:show()";
+	}
+</script>	
+</head>
+<body>
+	<div class="box">		
+        <div id="pn">
+            <p>
+                手机 - 商品筛选</p>
+            <p>
+                网络： 移动4G（TD-LTE ） 联通4G（TD-LTE） 联通3G（WCDMA）
+            </p>
+            <div id="hpn" style="display: none" >
+                <p>
+                    价格： 5000以上 4000-4999 3000-3999 2000-2999
+                </p>
+                <p>
+                    特点： JDPhone计划 "0"元购机 防水 长待机 1080P全高清屏
+                </p>
+            </div>
+        </div>  <!-- pn -->
+        <p class="slide"><a href="javascript:show();"  id="strHref" class="btn-slide">更多选项+</a></p>
+    </div> <!-- box -->
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+	*{
+		margin:0;
+		padding:0;
+	}
+	.main{
+		width:1190px;
+		margin:0 auto;
+	}
+	.top{
+		display:none;
+		width:40px;
+		height:40px;
+		position:fixed;
+		left:50%;
+		margin-left: 610px;
+		bottom:30px;
+		background: url(images/top_bg.jpg) left top no-repeat;
+	}
+	a:hover{
+		background: url(images/top_bg.jpg) left bottom no-repeat;
+	}
+	</style>
+
+<script>
+	window.onload=function(){
+		var obtn = document.getElementById("btn");
+		var timer = null;
+		var isTop=true;
+
+		window.onscroll=function(){
+			var oTop = document.documentElement.scrollTop || document.body.scrollTop;
+			var cHeight = document.documentElement.clientHeight || document.body.clientHeight;
+			// alert(cHeight);
+			if(oTop>=cHeight){
+				obtn.style.display="block";
+			}
+			else{
+				obtn.style.display="none";
+			}
+
+			if(!isTop){
+				clearInterval(timer);
+			}
+			isTop=false;
+		}
+
+		obtn.onclick=function(){
+			timer=setInterval(function(){
+				isTop=true;
+				var oTop = document.documentElement.scrollTop || document.body.scrollTop;
+				var speed = Math.floor(-oTop/6);
+				document.documentElement.scrollTop=document.body.scrollTop+=speed;
+				if(oTop==0) clearInterval(timer);
+			}, 30);
+		}
+	}
+</script>
+</head>
+<body>
+		<div class="main">
+			<img src="images/tb_bg.jpg">
+		</div>
+		<a class="top" id="btn" href="javascript:();"></a>			
+</body>
+</html>

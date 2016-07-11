@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript 实现回到顶部效果</title>
+</head>
+<style type="text/css" media="screen">
+	*{margin:0;padding:0;}
+	.box{width:1190px;margin:0 auto;}
+	#btn{width:40px;height:40px;position:fixed;bottom:30px;left:50%;margin-left:610px;
+		background: url(images/top_bg.jpg) left top no-repeat;display:none;}
+		#btn:hover{background: url(images/top_bg.jpg) left bottom no-repeat;}
+</style>
+
+<script>
+	window.onload=function(){
+		var obtn=document.getElementById("btn");
+		var timer=null;
+		var isTop=true;
+
+		obtn.onclick=function(){
+			timer=setInterval(function(){
+				var oTop=document.documentElement.scrollTop || document.body.scrollTop;
+				var speed=Math.floor(-oTop/5);
+				document.documentElement.scrollTop=document.body.scrollTop+=speed;
+				if(oTop==0) clearInterval(timer);
+				isTop=true;
+			},30)
+		}
+
+		window.onscroll=function(){
+			var oTop=document.documentElement.scrollTop || document.body.scrollTop;
+			var cHeight=document.documentElement.clientHeight || document.body.clientHeight;
+			if(oTop>=cHeight)
+			{
+				obtn.style.display="block";
+			}
+			else{
+				obtn.style.display="none";
+			}
+
+			if(!isTop){
+				clearInterval(timer);
+			}
+			isTop=false;
+		}
+	}
+</script>
+<body>
+	<div class="box">
+		<img src="images/tb_bg.jpg">
+	</div>
+	<a href="javascript:;" id="btn"></a>
+</body>
+</html>

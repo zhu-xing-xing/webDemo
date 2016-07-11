@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;
+		}
+		#box{
+			width:1000px;
+			height:300px;
+			background-color: #e8e8e8;
+			margin:0 auto;
+			text-align: center;
+			font-size: 40px;
+			padding:5px;
+			display:none;
+			overflow:hidden;
+		} 
+		p{
+			width:1000px;
+			margin:0 auto;
+			background-color: #ccc;
+			font-size: 40px;
+			line-height: 40px;
+			text-align: center;
+			padding:10px;
+		}
+	</style>
+
+<script>
+window.onload=function(){
+	var btn=document.getElementById("btn");
+	var box=document.getElementById("box");
+	var h=0;
+
+	function down(){				
+		if(h<300){
+			h+=5;
+			box.style.height=h+'px';
+			box.style.display='block';
+			setTimeout(down,10);
+		}
+		else{
+			setTimeout(up,2000);
+		}
+	}
+
+	function up(){
+		if(h>0){
+			h-=5;
+			box.style.height=h+'px';
+			setTimeout(up,10);
+		}
+		else{
+			box.style.display='none';
+		}
+	}
+	setTimeout(down,2000);
+		}
+</script>
+</head>
+<body>
+	<div class="box" id="box">
+		<h3>慕课网</h3>
+		我是广告！我是广告！我是广告！我是广告！我是广告！我是广告！我是广告！我是广告！我是广告！
+		我是广告！我是广告！我是广告！我是广告！我是广告！我是广告！我是广告！我是广告！我是广告！
+	</div>
+	<p id="btn">慕课网欢迎你！</p>
+</body>
+</html>

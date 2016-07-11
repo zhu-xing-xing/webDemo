@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>顶部伸缩式广告</title>
+	<style type="text/css" media="screen">
+		*{margin:0;padding:0;}
+		.box{width:960px;margin:0 auto;}
+		#ad{display:none;width:960px;height:386px;position:relative;overflow:hidden;}
+		#adCur{width:960px;height:68px;}
+		#close{background: url(img/close.png) no-repeat;width:30px;height:30px;
+			position:absolute;top:5px;right:5px;display:none;cursor: pointer;}
+	</style>
+
+<script>
+window.onload=function(){
+	var ad=document.getElementById("ad");
+	var adCon=document.getElementById("adCon"); 
+	var adCur=document.getElementById("adCur");
+	var close=document.getElementById("close");
+
+	var h=0;
+	var maxH=adCon.height;
+	var minH=adCur.height;
+	function adDown(){
+		if(h<maxH){
+			h+=5;
+			ad.style.height=h+'px';
+			ad.style.display="block";
+			setTimeout(adDown,1);
+		}
+		else{
+			ad.style.height=h+'px';
+			ad.style.display="block";
+			setTimeout(adUp,3000);
+		}
+	}
+
+	function adUp(){
+		if(h>minH){
+			h-=5;
+			ad.style.height=h+'px';
+			setTimeout(adUp,1);
+		}
+		else{
+			adCon.style.display='none';
+			close.style.display="block";	
+		}
+	}
+
+	close.onclick=function(){
+		ad.style.display='none';
+	}
+	setTimeout(adDown,3000);
+}
+</script>
+</head>
+<body>
+<div class="box">
+	<div id="ad">
+		<img id="adCon" src="img/ad.png">
+		<img id="adCur" src="img/cur.png">
+		<span id="close"></span>		
+	</div>
+	<div id="content"><img src="img/dangdang.jpg"></div>
+</div>
+
+</body>
+</html>
